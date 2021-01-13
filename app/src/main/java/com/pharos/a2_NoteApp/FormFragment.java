@@ -1,4 +1,4 @@
-package com.hfad.ad2noteapp;
+package com.pharos.a2_NoteApp;
 
 import android.os.Bundle;
 
@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+
+import com.pharos.a2_NoteApp.models.Note;
 
 public class FormFragment extends Fragment {
     private EditText editText;
@@ -34,13 +36,17 @@ public class FormFragment extends Fragment {
     private void save() {
         String text = editText.getText().toString().trim();
         Bundle bundle = new Bundle();
-        bundle.putString("text", text);
+
+        Note note = new Note(text);
+
+        bundle.putSerializable("note", note);
         getParentFragmentManager().setFragmentResult("rk_form", bundle);
         close();
     }
-
+    
     private void close() {
-        NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(requireActivity(),
+                R.id.nav_host_fragment);
         navController.navigateUp();
     }
 }

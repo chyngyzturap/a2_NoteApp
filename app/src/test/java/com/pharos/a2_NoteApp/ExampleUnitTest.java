@@ -1,4 +1,4 @@
-package com.hfad.ad2noteapp;
+package com.pharos.a2_NoteApp;
 
 import org.junit.Test;
 

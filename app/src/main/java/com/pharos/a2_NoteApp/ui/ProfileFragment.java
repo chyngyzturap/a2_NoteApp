@@ -1,11 +1,7 @@
-package com.hfad.ad2noteapp;
+package com.pharos.a2_NoteApp.ui;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -17,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.hfad.ad2noteapp.R;
+import com.pharos.a2_NoteApp.R;
 
 public class ProfileFragment extends Fragment {
 

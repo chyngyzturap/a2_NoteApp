@@ -1,11 +1,9 @@
-package com.hfad.ad2noteapp;
+package com.pharos.a2_NoteApp;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -20,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         appBarConfiguration = new AppBarConfiguration.Builder(
@@ -38,10 +37,3 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
     }
 }
-
-/*
-        1. Добавить 4 фрагмент с названием Profile
-        2. Добавить imageView в ProfileFragment
-        3. При нажатии открыть галерею для выбора картинки
-        4. Установить в ImageView
- */

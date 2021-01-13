@@ -1,4 +1,4 @@
-package com.hfad.ad2noteapp.ui.home;
+package com.pharos.a2_NoteApp.ui.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
