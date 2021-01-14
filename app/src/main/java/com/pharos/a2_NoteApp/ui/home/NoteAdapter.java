@@ -68,7 +68,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     public void remove(int position) {
         list.remove(position);
-        notifyDataSetChanged();
+        notifyItemRemoved(position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

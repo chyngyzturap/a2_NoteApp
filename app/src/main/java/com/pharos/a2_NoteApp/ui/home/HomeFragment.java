@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
 
     private void add10() {
         for (int i = 12; i > 0; i--) {
-            adapter.addItem(new Note("Эта запись # " + i, i + ""));
+            adapter.addItem(new Note("Эта запись # " + i, ""));
         }
     }
 
@@ -78,12 +78,7 @@ public class HomeFragment extends Fragment {
                                 adapter.remove(position);
                             }
                         })
-                        .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        });
+                        .setNegativeButton("Нет", null);
                 alert.create().show();
             }
         });
