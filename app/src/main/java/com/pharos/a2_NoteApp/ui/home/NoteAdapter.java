@@ -73,6 +73,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView txtTitle;
+        private TextView txtTime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -91,12 +92,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                 }
             });
             txtTitle = itemView.findViewById(R.id.txtTitle);
+            txtTime = itemView.findViewById(R.id.txtTime);
         }
 
 
 
         public void bind(Note note) {
             txtTitle.setText(note.getTitle());
+            txtTime.setText(note.getDate());
         }
     }
 }

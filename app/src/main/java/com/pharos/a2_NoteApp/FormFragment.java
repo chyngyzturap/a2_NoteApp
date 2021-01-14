@@ -15,6 +15,11 @@ import android.widget.EditText;
 
 import com.pharos.a2_NoteApp.models.Note;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class FormFragment extends Fragment {
     private EditText editText;
 
@@ -35,9 +40,10 @@ public class FormFragment extends Fragment {
 
     private void save() {
         String text = editText.getText().toString().trim();
+        String time = getTime();
         Bundle bundle = new Bundle();
 
-        Note note = new Note(text);
+        Note note = new Note(text,time);
 
         bundle.putSerializable("note", note);
         getParentFragmentManager().setFragmentResult("rk_form", bundle);
@@ -49,4 +55,10 @@ public class FormFragment extends Fragment {
                 R.id.nav_host_fragment);
         navController.navigateUp();
     }
+    private String getTime(){
+        Date date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        return dateFormat.format(date);
+    }
+
 }

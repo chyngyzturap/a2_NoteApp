@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
 
     private void add10() {
         for (int i = 12; i > 0; i--) {
-            adapter.addItem(new Note("Эта запись # " + i));
+            adapter.addItem(new Note("Эта запись # " + i, i + ""));
         }
     }
 
