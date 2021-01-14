@@ -6,10 +6,9 @@
     android:background="@drawable/whitewallpaper"
     tools:context=".ui.board.BoardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/viewPager"/>
 
 </FrameLayout>
