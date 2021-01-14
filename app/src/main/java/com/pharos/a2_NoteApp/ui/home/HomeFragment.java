@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void add10() {
-        for (int i = 10; i > 0; i--) {
+        for (int i = 12; i > 0; i--) {
             adapter.addItem(new Note("Эта запись # " + i));
         }
     }
@@ -70,12 +70,18 @@ public class HomeFragment extends Fragment {
             @Override
             public void longClick(int position) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext())
-                        .setTitle("Вы действительно хотите удалить?")
+                        .setTitle("Данная строка будет удалена")
                         .setMessage("Удалить?")
-                        .setPositiveButton("Хорошо", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 adapter.remove(position);
+                            }
+                        })
+                        .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
                             }
                         });
                 alert.create().show();
