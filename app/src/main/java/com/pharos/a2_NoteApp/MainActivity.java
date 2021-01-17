@@ -2,8 +2,10 @@ package com.pharos.a2_NoteApp;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.pharos.a2_NoteApp.ui.board.BoardAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private AppBarConfiguration appBarConfiguration;
+    private BoardAdapter boardAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 R.id.navigation_notifications,
                 R.id.profileFragment)
                 .build();
+
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
-            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+            public void onDestinationChanged(@NonNull NavController controller,
+                                             @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 ArrayList<Integer> list = new ArrayList<>();
                 list.add(R.id.navigation_home);
                 list.add(R.id.navigation_dashboard);
@@ -54,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     navView.setVisibility(View.GONE);
                 }
+
             }
         });
     }

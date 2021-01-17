@@ -3,9 +3,14 @@ package com.pharos.a2_NoteApp.ui.home;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,13 +22,15 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pharos.a2_NoteApp.OnItemClickListener;
+import com.pharos.a2_NoteApp.Prefs;
 import com.pharos.a2_NoteApp.R;
 import com.pharos.a2_NoteApp.models.Note;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements PopupMenu.OnMenuItemClickListener{
 
     private RecyclerView recyclerView;
     private NoteAdapter adapter;
+    private ImageButton imageButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container,
@@ -51,10 +58,12 @@ public class HomeFragment extends Fragment {
                               @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recyclerView);
+        Prefs prefs = new Prefs(getContext());
 
         view.findViewById(R.id.fab).setOnClickListener(v -> openForm());
         setFragmentListener();
         initList();
+        view.findViewById(R.id.imageButtonPopup).setOnClickListener(v -> showPopup(v));
     }
 
     private void initList() {
@@ -100,4 +109,27 @@ public class HomeFragment extends Fragment {
                     }
                 });
     }
-}
+
+
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.erase_home:
+                Prefs prefsEr = new Prefs(requireContext());
+                prefsEr.erasePreferences();
+                return true;
+
+            default:
+                return false;
+
+        }
+
+    }
+    private void showPopup(View view) {
+        PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
+        popupMenu.inflate(R.menu.settings_erase_menu);
+        popupMenu.setOnMenuItemClickListener(this);
+        popupMenu.show();
+}}

@@ -16,4 +16,10 @@ public class Prefs {
     public void saveBoardStatus() {
         preferences.edit().putBoolean("isShown", true).apply();
     }
+
+    public void erasePreferences(){
+        SharedPreferences.Editor preferenceErase = preferences.edit();
+        preferenceErase.remove("isShown");
+        preferenceErase.apply();
+    }
 }

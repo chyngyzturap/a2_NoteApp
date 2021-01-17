@@ -13,12 +13,14 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.pharos.a2_NoteApp.OnItemClickListener;
 import com.pharos.a2_NoteApp.Prefs;
 import com.pharos.a2_NoteApp.R;
 
 public class BoardFragment extends Fragment {
+    private ImageButton imgBtnSkip;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -44,6 +46,7 @@ public class BoardFragment extends Fragment {
 
             }
         });
+
 
     }
     private void close() {

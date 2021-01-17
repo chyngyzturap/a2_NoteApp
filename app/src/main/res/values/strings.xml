@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">a2_NoteApp</string>
     <string name="title_home">Home</string>
+    <string name="title_erase">Erase</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description_pizzeria">Restaurant that serves pizza</string>
+    <string name="description_coffeeHouse">A coffee house is a business that typically focuses on serving coffee and related products. It usually is thought of as a haven for people to sit and relax.</string>
+    <string name="description_restaurant">A restaurant (sometimes known as a diner) is a place where cooked food is sold to the public, and where people sit down to eat it. It is also a place where people go to enjoy the time and to eat a meal.</string>
 </resources>
