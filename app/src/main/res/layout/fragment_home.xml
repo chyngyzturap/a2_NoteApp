@@ -26,16 +26,16 @@
         android:src="@drawable/ic_add"
         />
 
-    <ImageButton
-        android:id="@+id/imageButtonPopup"
-        android:layout_width="46dp"
-        android:layout_height="47dp"
-        android:layout_marginEnd="4dp"
-        android:src="@drawable/ic_baseline_more_vert_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButtonPopup"-->
+<!--        android:layout_width="46dp"-->
+<!--        android:layout_height="47dp"-->
+<!--        android:layout_marginEnd="4dp"-->
+<!--        android:src="@drawable/ic_baseline_more_vert_24"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.125" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

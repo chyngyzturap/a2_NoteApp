@@ -21,5 +21,6 @@ public class Prefs {
         SharedPreferences.Editor preferenceErase = preferences.edit();
         preferenceErase.remove("isShown");
         preferenceErase.apply();
+        
     }
 }

@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +28,7 @@ import com.pharos.a2_NoteApp.Prefs;
 import com.pharos.a2_NoteApp.R;
 import com.pharos.a2_NoteApp.models.Note;
 
-public class HomeFragment extends Fragment implements PopupMenu.OnMenuItemClickListener{
+public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private NoteAdapter adapter;
@@ -45,6 +47,27 @@ public class HomeFragment extends Fragment implements PopupMenu.OnMenuItemClickL
         super.onCreate(savedInstanceState);
         adapter = new NoteAdapter(getContext());
         add10();
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.settings_erase_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.erase_home)
+            new Prefs(requireContext()).erasePreferences();
+        openB();
+        return super.onOptionsItemSelected(item);
+
+    }
+
+    private void openB() {
+        NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        navController.navigate(R.id.boardFragment);
     }
 
     private void add10() {
@@ -63,7 +86,7 @@ public class HomeFragment extends Fragment implements PopupMenu.OnMenuItemClickL
         view.findViewById(R.id.fab).setOnClickListener(v -> openForm());
         setFragmentListener();
         initList();
-        view.findViewById(R.id.imageButtonPopup).setOnClickListener(v -> showPopup(v));
+//        view.findViewById(R.id.imageButtonPopup).setOnClickListener(v -> showPopup(v));
     }
 
     private void initList() {
@@ -109,27 +132,27 @@ public class HomeFragment extends Fragment implements PopupMenu.OnMenuItemClickL
                     }
                 });
     }
+}
 
 
-
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-
-        switch (item.getItemId()){
-            case R.id.erase_home:
-                Prefs prefsEr = new Prefs(requireContext());
-                prefsEr.erasePreferences();
-                return true;
-
-            default:
-                return false;
-
-        }
-
-    }
-    private void showPopup(View view) {
-        PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
-        popupMenu.inflate(R.menu.settings_erase_menu);
-        popupMenu.setOnMenuItemClickListener(this);
-        popupMenu.show();
-}}
+//    @Override
+//    public boolean onMenuItemClick(MenuItem item) {
+//
+//        switch (item.getItemId()){
+//            case R.id.erase_home:
+//                Prefs prefsEr = new Prefs(requireContext());
+//                prefsEr.erasePreferences();
+//                return true;
+//
+//            default:
+//                return false;
+//
+//        }
+//
+//    }
+//    private void showPopup(View view) {
+//        PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
+//        popupMenu.inflate(R.menu.settings_erase_menu);
+//        popupMenu.setOnMenuItemClickListener(this);
+//        popupMenu.show();
+//}}
